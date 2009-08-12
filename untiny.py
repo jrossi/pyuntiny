@@ -14,9 +14,6 @@ class untiny(object):
         self._url_base = url_base
         self._urllib = urllib2
 
-    def _GetOpener(self, url):
-        return self._urllib.build_opener()
-
     def _GetUrl(self, url):
         opener = self._urllib.build_opener()
         responce = opener.open(url).read()
@@ -39,10 +36,3 @@ class untiny(object):
             return data.keys()
         else:
             raise UntinyError(u"Unknown responce from server: %s"%(str(data)))
-
-
-
-                
-x = untiny()
-print x.GetServices()
-print x.GetFullUrl("http://tiny.pl/htk")
